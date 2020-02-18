@@ -1,0 +1,53 @@
+
+<div class="content" role="main">
+
+  <div class="container">
+    <form #todoForm="ngForm" (ngSubmit)="todoSubmit(todoForm.value); todoForm.resetForm()" >
+      <div class="form-group">
+        <h1 class="text-center text-primary">Todo App</h1>
+        <div class="input-group-prepend">
+          <!-- <input type="text" #todo="ngModel" [class.is-invalid]="todo.invalid && todo.touched" class="form-control" required placeholder="Add Todo" name="todo" [(ngModel)]="value"> -->
+          <input type="text" #todo="ngModel" class="form-control" required placeholder="Add Todo" name="todo" ngModel>
+          <!-- <span *ngIf = "input1?.required">*</span> -->
+
+          <button class="input-group-text" ><i class="material-icons">add</i></button>
+          <!-- <div *ngIf="todo.value == '' && todo.untouched " class="alert alert-danger">
+            Empty value not permitted
+          </div> -->
+        </div>
+        <!-- Error message -->
+        <!-- <small class="text-danger" [class.d-none]="todo.valid || todo.untouched ">
+          Cannot insert empty
+        </small> -->
+
+      </div>
+      <div class="data">
+        <!-- <ul class="list-unstyled">
+          <li *ngFor="let todo of todoArray">{{todo}}<i (click)="deleteItem(todo)" class="material-icons">delete</i></li>
+        </ul> -->
+
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let todo of itemList">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #check1 id="check1" (click)="toggleCheck(todo)" >
+              <label class="form-check-label" for="check1"><span [ngClass]="{'font-weight-bold': todo.finished}">{{todo.name}}</span>
+              <i (click)="removeItem(todo)" class="material-icons">delete</i>
+              </label>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <button class="btn btn-primary"  >Update</button>
+
+    </form>
+    <!-- <button class="btn btn-info" (click)="openModal()">Open Modal</button> -->
+
+    <!-- <p>{{todoValue}}</p> -->
+    <!-- <p>{{todo.value}}</p> -->
+  </div>
+
+</div>
+
+

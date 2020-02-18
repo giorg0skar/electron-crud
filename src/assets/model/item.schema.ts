@@ -7,4 +7,7 @@ export class Item {
 
     @Column()
     name: string;
+
+    @Column()
+    finished: boolean;
 }
